@@ -38,7 +38,6 @@
         <li><a href="#">注册</a></li>
         </ul>
     </div>
-    </div>
   </nav>
 
 
