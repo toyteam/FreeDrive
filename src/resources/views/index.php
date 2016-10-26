@@ -3,26 +3,19 @@
 <head>
   <meta charset="utf-8">
   <title>FreeDrive</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- 新 Bootstrap 核心 CSS 文件 -->
-  <!--<link rel="stylesheet" href="css/bootstrap.min.css"> -->
-  <!-- 可选的Bootstrap主题文件（一般不用引入） -->
-  <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
+  <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://cdn.bootcss.com/bootstrap/3.3.0/fonts/glyphicons-halflings-regular.svg" rel="stylesheet">
 
   <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-  <!--<script src="js/jquery-3.1.1.min.js"></script> -->
+  <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 
+  <script src="http://cdn.bootcss.com/tether/1.3.7/js/tether.min.js"></script>
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-  <!--<script src="js/bootstrap.min.js"></script> -->
-
-
-  <!-- 新 Bootstrap 核心 CSS 文件 -->
-  <link href="//cdn.bootcss.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-
-  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-  <script src="//cdn.bootcss.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/npm.js"></script>
 </head>
 
 
