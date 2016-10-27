@@ -13,8 +13,10 @@
 
 Route::get('/', 'LoginController@welcome');
 Route::get('login','LoginController@login');
+Route::get('register','LoginController@register');
 
 Route::post('login_check','LoginController@login_check');
+Route::post('register_check','LoginController@register_check');
 
 /*
 |--------------------------------------------------------------------------

@@ -12,13 +12,20 @@ class User extends Model
 
 	public $timestamps = false;
 
-	public function findbyUsername($username)
+	public static function findbyUsername($username)
 	{
-		$user = User::where('user_name',$username);
+		$user = User::where('user_name',$username)->first();
+
 		if ($user) {
 			return $user;
 		} else {
 			return null;
 		}
+	}
+
+	public static function insertUserinfo($userinfo)
+	{
+		$issuccess = User::insert($userinfo);
+		return $issuccess;
 	}
 }
