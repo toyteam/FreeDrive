@@ -39,6 +39,7 @@ class LoginController extends Controller
 		}
 
 		$this->setsession($user);
+		User::updateUserinfo($user->user_id, ['user_last_login_time' => time()]);
 
 		//----success----
 		return view('explorer');
@@ -80,6 +81,9 @@ class LoginController extends Controller
 
 	private function setsession($user)
 	{
-		
+		session()->put('islogin', 1);
+		session()->put('user_id',$user->user_id);
+		session()->put('user_name', $user->user_name);
+		session()->put('user_priority', $user->user_priority);
 	}
 }
