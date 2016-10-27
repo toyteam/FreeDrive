@@ -11,49 +11,7 @@ class LoginController extends Controller
 {
 	public function welcome()
 	{
-		// $res = DB::table('user')->insert([
-		// 	'user_name'=>'123',
-		// 	'user_pw' => '1123',
-		// 	'user_create_time' => '1',
-		// 	'user_last_login_time' => '1',
-		// 	'user_priority' => '1'
-		// 	]);
-		
-		// DB::table('user')
-		// ->where('user_id', '4')
-		// ->update(
-		// 	['user_name' => '5']
-		// );
-		
-		// DB::table('user')
-		// ->where('user_id','>=','5')
-		// ->delete();
-
-		// $data = DB::table('user')->get();
-		// $data = DB::table('user')
-		// ->whereRaw('user_id >= 3 && user_name != 0')
-		// ->first(); 
-		
-		// $data = DB::table('user')
-		// ->select('user_name','user_id','user_pw')
-		// ->get();
-		
-		// DB::table('user')
-		// ->chunk(2,function($user){
-		// 	var_dump($user);
-		// });
-		
-		// dd($data);	
 		return view('index');
-		
-		// $user = User::all();
-		// $user = User::findOrFail(1);
-		// dd($user); 
-		
-		// $user = new User();
-		// $user->user_name = '333';
-		// $user->save();
-		// dd($user);
 	}
 
 	public function login()
@@ -63,9 +21,65 @@ class LoginController extends Controller
 
 	public function login_check(Request $data)
 	{
+		$user_name = $data->input('user_name');
+		$user_pw = $data->input('user_pw');
 
+		if (! $user = User::findbyUsername($user_name) )
+		{
+			$errmessage = "<p>用户名或密码不正确</p>";
+			return view('login', ['error' => $errmessage]);
+		}
+
+		$user_pw_hash = $user->user_pw;
+
+		if (! password_verify($user_pw, $user_pw_hash))
+		{
+			$errmessage = "<p>用户名或密码不正确</p>";
+			return view('login', ['error' => $errmessage]);			
+		}
+
+		$this->setsession($user);
 
 		//----success----
 		return view('explorer');
+	}
+
+	public function register()
+	{
+		return view('register');
+	}
+
+	public function register_check(Request $data)
+	{
+		$user_name = $data->input('user_name');
+		$user_pw = $data->input('user_pw');
+		$user_pw_hash = password_hash($user_pw, PASSWORD_DEFAULT);
+
+		if(User::findbyUsername($user_name))
+		{
+			$errmessage = "<p>用户名已被注册</p>";
+			return view('register', ['error'=>$errmessage]);
+		}
+
+		$userinfo = array(
+			'user_name' => $user_name,
+			'user_pw' => $user_pw_hash,
+			'user_create_time' => time(),
+			'user_last_login_time' => time(),
+			'user_priority' => 0
+		);
+		if (!User::insertUserinfo($userinfo)) 
+		{
+			$errmessage = "<p>注册失败，请稍后重试</p>";
+			return view('register', ['error'=>$errmessage]);
+		}
+
+		//-----success-----------
+		return view('login');
+	}
+
+	private function setsession($user)
+	{
+		
 	}
 }

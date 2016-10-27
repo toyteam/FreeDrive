@@ -65,11 +65,11 @@
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container-fluid">
     <div class="navbar-header">
-        <a class="navbar-brand" href="#">FreeDrive</a>
+        <a class="navbar-brand" href="<?=url('/')?>">FreeDrive</a>
     </div>
         <ul class="nav navbar-nav navbar-right">
         <li><a href="<?= url('login')?>">登陆</a></li>
-        <li><a href="#">注册</a></li>
+        <li><a href="<?= url('register')?>">注册</a></li>
         </ul>
     </div>
   </nav>
@@ -79,8 +79,9 @@
 
     <form class="form-signin" role="form" action="<?=url('login_check')?>" method="post">
         <h2 class="form-signin-heading">登陆</h2>
-        <input type="text" class="input-block-level form-control" placeholder="username">
-        <input type="password" class="input-block-level form-control" placeholder="password">
+        <?=isset($error)?$error:''?>
+        <input type="text" class="input-block-level form-control" placeholder="username" name="user_name">
+        <input type="password" class="input-block-level form-control" placeholder="password" name="user_pw">
         <label class="checkbox remember-checkbox">
           <input type="checkbox" value="remember-me">保持登陆
         </label>
