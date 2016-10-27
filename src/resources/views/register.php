@@ -57,6 +57,54 @@
         margin-bottom: 15px;
       }
     </style>
+    <script>
+      $(function (){
+        $("[data-toggle='user_name_popover']").popover({trigger:'manual'});
+        $("[data-toggle='password_popover']").popover({trigger:'manual'});
+      });
+
+      function loginSubmitCheck(){
+        var result=true;
+        //检测名字是否空
+        var name=document.getElementsByName("user_name");
+        if(name[0].value==""){
+          (document.getElementsByName('user_name')[0]).setAttribute('data-content','请输入用户名');
+          $("[data-toggle='user_name_popover']").popover('show');
+          result=false;
+        }
+        //检测密码是否空
+        var pass=document.getElementsByName("user_pw");
+        if(pass[0].value==""){
+          (document.getElementsByName('user_pw')[0]).setAttribute('data-content','请输入密码');
+          $("[data-toggle='password_popover']").popover('show');
+          result=false;
+        }
+        //检测重复密码是否空
+        var pass2=document.getElementsByName("user_pw_confirm");
+        if(pass2[0].value==""){
+          (document.getElementsByName('user_pw_confirm')[0]).setAttribute('data-content','请验证密码');
+          $("[data-toggle='password_popover']").popover('show');
+          result=false;
+        }
+        //检测两次密码是否一致
+        if(pass[0].value!=pass2[0].value){
+          (document.getElementsByName('user_pw_confirm')[0]).setAttribute('data-content','两次密码输入不一样');
+          $("[data-toggle='password2_popover']").popover('show');
+          result=false;
+        }
+        //检测密码是否过短
+        if(pass[0].value.length<6&&pass[0].value.length>0){
+          (document.getElementsByName('user_pw')[0]).setAttribute('data-content','密码过短');
+          $("[data-toggle='password_popover']").popover('show');
+          result=false;
+        }
+        return result;
+      }
+      function cancelWarning(){
+        $("[data-toggle='user_name_popover']").popover('hide');
+        $("[data-toggle='password_popover']").popover('hide');
+      }
+    </script>
 </head>
 
 
@@ -76,12 +124,24 @@
 
   <div class="container">
 
-    <form class="form-signin" role="form" action="<?=url('register_check')?>" method="post">
+    <form class="form-signin" role="form" action="<?=url('register_check')?>" method="post" onsubmit="return loginSubmitCheck()">
         <h2 class="form-signin-heading">注册</h2>
         <?=isset($error)?$error:''?>
-        <input type="text" class="input-block-level form-control" placeholder="username" name="user_name">
-        <input type="password" class="input-block-level form-control" placeholder="password" name="user_pw">
-        <input type="password" class="input-block-level form-control" placeholder="retype password" name="user_pw_confirm">
+        <input type="text" class="input-block-level form-control"
+        data-container="body" data-toggle="user_name_popover" data-placement="right" data-content="请输入用户名"
+        onclick="cancelWarning();"
+        placeholder="username" name="user_name">
+
+        <input type="password" class="input-block-level form-control"
+        data-container="body" data-toggle="password_popover" data-placement="right" data-content="请输入密码"
+        onclick="cancelWarning();"
+        placeholder="password" name="user_pw">
+
+        <input type="password" class="input-block-level form-control"
+        data-container="body" data-toggle="password2_popover" data-placement="right" data-content="两次密码输入不一样"
+        onclick="cancelWarning();"
+        placeholder="retype password" name="user_pw_confirm">
+
         <p></p>
         <button class="btn btn-large btn-primary login-btn" type="submit">注册</button>
       </form>
