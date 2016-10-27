@@ -11,13 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'LoginController@welcome');
+Route::get('login','LoginController@login');
 
-Route::get('login',function(){
-	return view('login');
-});
+Route::post('login_check','LoginController@login_check');
 
 /*
 |--------------------------------------------------------------------------

@@ -27,7 +27,7 @@
         <a class="navbar-brand" href="#">FreeDrive</a>
     </div>
         <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">登陆</a></li>
+        <li><a href="<?= url('login')?>">登陆</a></li>
         <li><a href="#">注册</a></li>
         </ul>
     </div>
@@ -40,7 +40,7 @@
   			<div class="jumbotron">
           <h1>FreeDrive</h1>
           <p>Welcome to the home of your files.</p>
-          <p><a class="btn btn-primary btn-lg" href="#" role="button">Login</a></p>
+          <p><a class="btn btn-primary btn-lg" href="<?= url('login')?>" role="button">Login</a></p>
           <p><a class="btn btn-primary btn-lg" href="#" role="button">Register</a></p>
   			</div>
   		</div>

@@ -71,7 +71,7 @@
 
   <div class="container">
 
-    <form class="form-signin" role="form">
+    <form class="form-signin" role="form" action="<?=url('login_check')?>" method="post">
         <h2 class="form-signin-heading">登陆</h2>
         <input type="text" class="input-block-level form-control" placeholder="username">
         <input type="password" class="input-block-level form-control" placeholder="password">

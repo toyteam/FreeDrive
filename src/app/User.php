@@ -2,25 +2,23 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class User extends Model
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+	protected $table = 'user';
 
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+	protected $primaryKey = 'user_id';
+
+	public $timestamps = false;
+
+	public function findbyUsername($username)
+	{
+		$user = User::where('user_name',$username);
+		if ($user) {
+			return $user;
+		} else {
+			return null;
+		}
+	}
 }
