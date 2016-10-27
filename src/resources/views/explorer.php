@@ -21,6 +21,9 @@
   <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/npm.js"></script>
 
 
+
+  <link href="custom_css/form-checkbox-normal.css" rel="stylesheet">
+
   <!--css-->
   <style type="text/css">
   body {
@@ -119,37 +122,54 @@
            </div>
          </div>
          <hr>
-         <!--文件列表头-->
-         <div class="row-fluid">
-             <ul class="nav nav-tabs">
-               <li class="col-md-6">
-                 <a href="#">文件名</a>
-               </li>
-               <li class="col-md-3"><a href="#">大小</a></li>
-               <li class="col-md-3"><a href="#">修改时间</a></li>
-             </ul>
-         </div>
+
          <!--文件列表-->
          <div class="row-fluid">
            <div class="col-md-12">
-             <ul class="list-group">
-               <a href="#" class="list-group-item active">
-                 <input type="checkbox" id="inlineCheckbox1" value="option1">
-                 文档
-               </a>
-               <a href="#" class="list-group-item">
-                 <input type="checkbox" id="inlineCheckbox1" value="option1">
-                 学习
-               </a>
-               <a href="#" class="list-group-item">
-                 <input type="checkbox" id="inlineCheckbox1" value="option1">
-                 英语
-               </a>
-               <a href="#" class="list-group-item">
-                 <input type="checkbox" id="inlineCheckbox1" value="option1">
-                 作业
-               </a>
-             </ul>
+             <table class="table table-bordered table-hover">
+               <thead>
+                 <tr>
+                   <th>文件名</th>
+                   <th>大小</th>
+                   <th>修改时间</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr>
+                   <td>
+                     <span class="form-checkbox">
+                       <input type="checkbox" value="1" id="checkbox_1" name="" />
+                       <label for="checkbox_1"></label>
+                     </span>
+                     英语
+                   </td>
+                   <td>-</td>
+                   <td>2016-1-2</td>
+                 </tr>
+                 <tr>
+                   <td>
+                     <span class="form-checkbox">
+                       <input type="checkbox" value="1" id="checkbox_2" name="" />
+                       <label for="checkbox_2"></label>
+                     </span>
+                     作业
+                   </td>
+                   <td>-</td>
+                   <td>2016-5-7</td>
+                 </tr>
+                 <tr>
+                   <td>
+                     <span class="form-checkbox">
+                       <input type="checkbox" value="1" id="checkbox_3" name="" />
+                       <label for="checkbox_3"></label>
+                     </span>
+                     学习.txt
+                   </td>
+                   <td>1M</td>
+                   <td>2016-5-7</td>
+                 </tr>
+               </tbody>
+             </table>
            </div>
          </div>
 

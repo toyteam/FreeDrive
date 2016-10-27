@@ -6,6 +6,8 @@
 	border-radius: 50px;
   box-shadow: inset 1px 1px 1px;
 	position: relative;
+
+
 }
 
 .form-checkbox-switch label {
@@ -25,5 +27,5 @@
 }
 .form-checkbox-switch input[type=checkbox]:checked + label {
 	left: 48px;
-  background-color: #2f77ec;
+	background-color: #2f77ec;
 }
