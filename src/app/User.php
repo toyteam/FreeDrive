@@ -28,4 +28,10 @@ class User extends Model
 		$issuccess = User::insert($userinfo);
 		return $issuccess;
 	}
+
+	public static function updateUserinfo($user_id, $userinfo)
+	{
+		$num = User::where('user_id', $user_id)->update($userinfo);
+		return $num;
+	}
 }
