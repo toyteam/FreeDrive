@@ -57,6 +57,31 @@
         margin-bottom: 15px;
       }
     </style>
+    <script>
+      $(function (){
+        $("[data-toggle='user_name_popover']").popover({trigger:'manual'});
+        $("[data-toggle='password_popover']").popover({trigger:'manual'});
+      });
+
+      function loginSubmitCheck(){
+        var result=true;
+        var name=document.getElementsByName("user_name");
+        if(name[0].value==""){
+          $("[data-toggle='user_name_popover']").popover('show');
+          result=false;
+        }
+        var pass=document.getElementsByName("user_pw");
+        if(pass[0].value==""){
+          $("[data-toggle='password_popover']").popover('show');
+          result=false;
+        }
+        return result;
+      }
+      function cancelWarning(){
+        $("[data-toggle='user_name_popover']").popover('hide');
+        $("[data-toggle='password_popover']").popover('hide');
+      }
+    </script>
 </head>
 
 
@@ -77,20 +102,32 @@
 
   <div class="container">
 
-    <form class="form-signin" role="form" action="<?=url('login_check')?>" method="post">
+    <form class="form-signin" role="form" action="<?=url('login_check')?>" method="post" onsubmit="return loginSubmitCheck()">
         <h2 class="form-signin-heading">登陆</h2>
         <?=isset($error)?$error:''?>
-        <input type="text" class="input-block-level form-control" placeholder="username" name="user_name">
-        <input type="password" class="input-block-level form-control" placeholder="password" name="user_pw">
+        <p class="a">
+          <input type="text" class="input-block-level form-control"
+        data-container="body" data-toggle="user_name_popover" data-placement="right" data-content="请输入用户名"
+        onclick="cancelWarning();"
+        placeholder="username" name="user_name">
+        </p>
+        <p class="a">
+          <input type="password" class="input-block-level form-control"
+        data-container="body" data-toggle="password_popover" data-placement="right" data-content="请输入密码"
+        onclick="cancelWarning();"
+        placeholder="password" name="user_pw">
+        </p>
         <label class="checkbox remember-checkbox">
           <input type="checkbox" value="remember-me">保持登陆
         </label>
         <p></p>
-        <button class="btn btn-large btn-primary login-btn" type="submit">登陆</button>
-      </form>
+        <button class="btn btn-large btn-primary login-btn a" type="submit">登陆</button>
+    </form>
 
   </div><!-- /container -->
 
 </body>
+
+
 
 </html>

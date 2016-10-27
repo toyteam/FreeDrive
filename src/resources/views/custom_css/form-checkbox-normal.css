@@ -18,8 +18,6 @@ input[type=checkbox] {
     border-width: 2px;
     border-color: #888;
 
-    box-shadow:1px 1px 1px;
-
     cursor: pointer;
     position: absolute;
     transition: all .3s ease;
