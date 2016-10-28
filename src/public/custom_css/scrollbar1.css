@@ -1,0 +1,47 @@
+.scrollbar{
+    float: right;
+    position: relative;
+    margin:0;
+    height: 300px;
+    width: 12px;
+    background-color: #fff;
+    border-style: solid;
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: #aaa;
+    transition: all 0.3s ease-in-out;
+  }
+  .scrollbar .scrollbar-tracker{
+    position: absolute;
+    height: 30px;
+    width: 8px;
+    background-color: #ddd;
+    border-radius: 4px;
+    border-width: 1px;
+    top:1px;
+    left: 1px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  .scrollbar:hover{
+    float: right;
+    position: relative;
+    margin:0;
+    height: 300px;
+    width: 18px;
+    background-color: #fff;
+    border-style: solid;
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: #aaa;
+  }
+  .scrollbar:hover .scrollbar-tracker{
+    position: absolute;
+    height: 30px;
+    width: 14px;
+    background-color: #ddd;
+    border-radius: 4px;
+    border-width: 1px;
+    top:1px;
+    left: 1px;
+  }

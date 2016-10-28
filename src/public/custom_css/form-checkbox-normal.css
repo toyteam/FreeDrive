@@ -1,0 +1,28 @@
+input[type=checkbox] {
+   visibility: hidden;
+ }
+.form-checkbox{
+  position: relative;
+}
+ .form-checkbox label {
+    display: block;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: 0px;
+    top:0px;
+    background: #eee;
+    position: relative;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #888;
+
+    cursor: pointer;
+    position: absolute;
+    transition: all .3s ease;
+}
+
+.form-checkbox input[type=checkbox]:checked +label{
+  background: #2f77ec;
+ }

@@ -20,9 +20,11 @@
   <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/npm.js"></script>
 
+  <!-- plupload  上传组件 JavaScript 文件 -->
+  <script src="<?=URL::asset('/js/plupload/plupload.full.min.js')?>"></script>
 
 
-  <link href="custom_css/form-checkbox-normal.css" rel="stylesheet">
+  <link href="<?=URL::asset('/custom_css/form-checkbox-normal.css')?>" rel="stylesheet">
 
   <!--css-->
   <style type="text/css">
@@ -86,8 +88,9 @@
        <div class="col-md-10">
          <div class="row-fluid">
            <!--操作按钮-->
-           <div class="col-md-1">
-             <button class="btn btn-small btn-primary" type="button">上传</button>
+           <div class="col-md-3">
+             <button class="btn btn-small btn-primary" type="button" id="browse">选择文件</button>
+             <button class="btn btn-small btn-primary" type="button" id="start_upload">开始上传</button>
            </div>
            <div class="col-md-1">
              <button class="btn btn-small" type="button">新建文件夹</button>
@@ -180,5 +183,21 @@
 
 
 </body>
+
+<script type="text/javascript">
+var uploader = new plupload.Uploader({
+  browse_button : 'browse',
+  url:'',
+  //flash_swf_url : 'js/Moxie.swf', //swf文件，当需要使用swf方式进行上传时需要配置该参数
+  //silverlight_xap_url : 'js/Moxie.xap' //silverlight文件，当需要使用silverlight方式进行上传时需要配置该参数
+});
+
+uploader.init();
+
+$('#start_upload').click(function(){
+  uploader.start();
+});
+
+</script>
 
 </html>
