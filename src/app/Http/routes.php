@@ -18,6 +18,8 @@ Route::get('register','LoginController@register');
 Route::post('login_check','LoginController@login_check');
 Route::post('register_check','LoginController@register_check');
 
+Route::any('uploadFile', 'FileController@uploadFile');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes

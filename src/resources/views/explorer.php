@@ -187,7 +187,10 @@
 <script type="text/javascript">
 var uploader = new plupload.Uploader({
   browse_button : 'browse',
-  url:'',
+  url:'<?=url('uploadFile')?>',
+  // filters:{
+  //   max_file_size:'150kb'
+  // }
   //flash_swf_url : 'js/Moxie.swf', //swf文件，当需要使用swf方式进行上传时需要配置该参数
   //silverlight_xap_url : 'js/Moxie.xap' //silverlight文件，当需要使用silverlight方式进行上传时需要配置该参数
 });
