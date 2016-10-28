@@ -1,5 +1,32 @@
 # FreeDrive
 An easy online storage service software. 
+
+
+==
+Architecture
+==
+namenode--phppage
+|
+|--datanode--phppage
+|
+|--datanode--phppage
+|
+|--datanode--phppage
+|
+|--datanode--phppage
+|
+|--datanode--phppage
+|
+|--datanode--phppage
+
+
+==
+Install
+==
+
+
+
+
 # Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
