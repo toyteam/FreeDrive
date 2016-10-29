@@ -23,6 +23,7 @@ input[type=checkbox] {
     transition: all .3s ease;
 }
 
+
 .form-checkbox input[type=checkbox]:checked +label{
   background: #2f77ec;
  }

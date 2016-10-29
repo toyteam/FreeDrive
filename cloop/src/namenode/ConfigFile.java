@@ -38,9 +38,8 @@ public class ConfigFile {
 	                 System.out.println(nodes.item(i).getNodeValue());  
 	         }
 		}catch(Exception e){
-			
+			Logs.addErr("Failed to read the config.");
 		}
-		 
 	}
 	public void writeConf(){
 		
