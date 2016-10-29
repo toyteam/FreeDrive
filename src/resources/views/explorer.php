@@ -37,6 +37,16 @@
     padding: 9px 0;
   }
 
+  .newdirname {
+    width: 5em;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+  }
+
+  .span_newdir {
+    width: auto;
+  }
+
   @media (max-width: 980px) {
     /* Enable use of floated navbar text */
     .navbar-text.pull-right {
@@ -93,7 +103,7 @@
              <button class="btn btn-small btn-primary" type="button" id="start_upload">开始上传</button>
            </div>
            <div class="col-md-1">
-             <button class="btn btn-small" type="button">新建文件夹</button>
+             <button id="mddir" class="btn btn-small" type="button">新建文件夹</button>
            </div>
            <div class="col-md-4">
            </div>
@@ -125,7 +135,7 @@
            </div>
          </div>
          <hr>
-
+         <input id="hidden" type="hidden" value="3" />
          <!--文件列表-->
          <div class="row-fluid">
            <div class="col-md-12">
@@ -199,6 +209,41 @@ uploader.init();
 
 $('#start_upload').click(function(){
   uploader.start();
+});
+
+$('input').focus(function(){
+  alert('sdaf');
+});
+
+$('input').blur(function(){
+  alert('dsafa');
+  $('#span_newdir').text(function(){
+    return $('.newdirname').text();
+  });
+});
+
+
+
+
+
+
+</script>
+
+<script>
+
+
+
+$('#mddir').click(function(){
+  var checkbox = '<span class="form-checkbox"><input type="checkbox" value="1" id="checkbox_new" name="" /><label for="checkbox_new"></label></span>';
+  var input = '<input class="newdirname" type="text" value="新建文件夹">&nbsp;&nbsp;&nbsp;&nbsp;<input class="submit" type="submit" value="提交">';
+  var script = '<script>$(".submit").click(function(){$(".span_newdir").text(function(){return $(".newdirname").val();});});<\/script>';
+  var myDate = new Date();
+  var year = myDate.getFullYear();    //获取完整的年份(4位,1970-????)
+  var month = myDate.getMonth();       //获取当前月份(0-11,0代表1月)
+  var day = myDate.getDate();        //获取当前日(1-31)
+  $('tbody').append('<tr><td>'+
+    checkbox+'&nbsp;&nbsp;<span class="span_newdir"><from>'+
+    input+script+'</from></span></td><td>1M</td><td>'+year+'-'+month+'-'+day+'</td></tr>');
 });
 
 </script>
