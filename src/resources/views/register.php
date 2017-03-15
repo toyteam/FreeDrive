@@ -39,6 +39,7 @@
       .form-signin .form-signin-heading,
       .form-signin .checkbox {
         margin-bottom: 10px;
+        text-align: center;
       }
       .form-signin input[type="text"],
       .form-signin input[type="password"] {
@@ -52,9 +53,7 @@
         margin-bottom: 15px;
       }
       .form-signin .login-btn {
-        margin-left: 30%;
-        margin-right: 30%;
-        margin-bottom: 15px;
+        margin-left: 40%;
       }
     </style>
     <script>

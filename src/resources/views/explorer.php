@@ -47,15 +47,73 @@
     width: auto;
   }
 
+  .free-sidebar-header{
+    margin: 10px;
+    background-color: #99ccff;
+    border-radius: 5px;
+    color: #ffffff;
+  }
+  .free-sidebar-list{
+
+  }
+  .free-sidebar-item{
+    margin: 5px;
+  }
+  .free-sidebar-item:hover{
+    border-right: solid 3px #99ccff;
+    margin: 5px;
+  }
+  .free-sidebar{
+
+  }
   @media (max-width: 980px) {
     /* Enable use of floated navbar text */
     .navbar-text.pull-right {
       float: none;
-      padding-left: 5px;
-      padding-right: 5px;
+
     }
   }
+  .rightbutton-menu{
+    float: right;
+    display:none;
+    width:60px;
+    position: absolute;
+    z-index: 1;
+  }
   </style>
+  <script type="text/javascript">
+  $(function(){
+    //初始化操作
+  });
+  /*
+  document.onmousedown = function(e){
+      var e = e || window.event;
+      if(e.button == "2"){
+        if(e.offsetY>$('#main-panel').offset().top&&
+            e.offsetY<$('#main-panel').offset().top+$('#main-panel').height()&&
+            e.offsetX>$('#main-panel').offset().left&&
+            e.offsetX<$('#main-panel').offset().left+$('#main-panel').width()){
+              $('.rightbutton-menu').css('margin',e.offsetY+'px '+e.offsetX+'px');
+              $('.rightbutton-menu').show();
+            }
+      }else if(e.button=="0"){
+          $('.rightbutton-menu').hide();
+      }
+  }*/
+  $(document).ready(function(){
+  $('body').mousedown(
+    function(){
+      var e =window.event;
+      if(e.button == "2"){
+        $('.rightbutton-menu').css('margin',e.offsetY+'px '+e.offsetX+'px');
+        $('.rightbutton-menu').show();
+      }else if(e.button=="0"){
+        $('.rightbutton-menu').hide();
+      }
+    }
+  );
+});
+</script>
 </head>
 
 
@@ -66,31 +124,39 @@
         <a class="navbar-brand" href="#">FreeDrive</a>
     </div>
       <ul class="nav nav-pills navbar-right" role="tablist">
-        <li role="presentation" class="active"><a href="#">登陆</a></li>
-        <li role="presentation"><a href="#">注册</a></li>
+        <li role="presentation"><a href="#">退出</a></li>
       </ul>
     </div>
   </nav>
-
+  <!--
+  <div class="rightbutton-menu">
+  <ul class="list-group">
+    <li class="list-group-item">剪切</li>
+    <li class="list-group-item">复制</li>
+    <li class="list-group-item">粘贴</li>
+    <li class="list-group-item">删除</li>
+  </ul>
+</div>
+右键菜单-->
   <div class="container-fluid">
     <div class="row-fluid">
       <!--左侧功能栏-->
       <div class="col-md-2">
-         <div class="well sidebar-nav">
-           <ul class="nav nav-list">
-             <li class="nav-header">全部文件</li>
-             <li class="active"><a href="#">全部文件</a></li>
-             <li><a href="#">图片</a></li>
-             <li><a href="#">文档</a></li>
-             <li><a href="#">音乐</a></li>
-             <li class="nav-header">分享</li>
-             <li><a href="#">全部分享</a></li>
-             <li><a href="#">公开链接</a></li>
-             <li><a href="#">私密链接</a></li>
-             <li><a href="#">好友分享</a></li>
-             <li class="nav-header">回收站</li>
-             <li><a href="#">已删除的文件</a></li>
-             <li><a href="#">回收站</a></li>
+         <div class="well sidebar-nav free-sidebar">
+           <ul class="nav nav-list free-sidebar-list">
+             <li class="nav-header free-sidebar-header">全部文件</li>
+             <li class="active free-sidebar-item"><a href="#">全部文件</a></li>
+             <li class="free-sidebar-item"><a href="#">图片</a></li>
+             <li class="free-sidebar-item"><a href="#">文档</a></li>
+             <li class="free-sidebar-item"><a href="#">音乐</a></li>
+             <li class="nav-header free-sidebar-header">分享</li>
+             <li class="free-sidebar-item"><a href="#">全部分享</a></li>
+             <li class="free-sidebar-item"><a href="#">公开链接</a></li>
+             <li class="free-sidebar-item"><a href="#">私密链接</a></li>
+             <li class="free-sidebar-item"><a href="#">好友分享</a></li>
+             <li class="nav-header free-sidebar-header">回收站</li>
+             <li class="free-sidebar-item"><a href="#">已删除的文件</a></li>
+             <li class="free-sidebar-item"><a href="#">回收站</a></li>
            </ul>
          </div><!--/.well -->
        </div><!--/span-->
@@ -148,13 +214,26 @@
                  </tr>
                </thead>
                <tbody>
-                 <tr>
+                 <tr class="table-row">
                    <td>
                      <span class="form-checkbox">
                        <input type="checkbox" value="1" id="checkbox_1" name="" />
                        <label for="checkbox_1"></label>
                      </span>
-                     英语
+                     <span class="fileicon"></span>
+                     <span>
+                       <span class="filename">英语</span>
+                       <span class="operation">
+                         <div class="rightbutton-menu">
+                         <ul class="list-group">
+                           <li class="list-group-item">剪切</li>
+                           <li class="list-group-item">复制</li>
+                           <li class="list-group-item">粘贴</li>
+                           <li class="list-group-item">删除</li>
+                         </ul>
+                        </div>
+                       </span>
+                     </span>
                    </td>
                    <td>-</td>
                    <td>2016-1-2</td>
@@ -212,11 +291,11 @@ $('#start_upload').click(function(){
 });
 
 $('input').focus(function(){
-  alert('sdaf');
+  //alert('sdaf');
 });
 
 $('input').blur(function(){
-  alert('dsafa');
+  //alert('dsafa');
   $('#span_newdir').text(function(){
     return $('.newdirname').text();
   });
@@ -247,5 +326,12 @@ $('#mddir').click(function(){
 });
 
 </script>
+
+<script type="text/javascript">
+  //禁用右键菜单
+  document.body.onselectstart=document.body.oncontextmenu=function(){ return false;}
+</script>
+
+
 
 </html>

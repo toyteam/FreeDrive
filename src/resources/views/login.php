@@ -38,7 +38,8 @@
       }
       .form-signin .form-signin-heading,
       .form-signin .checkbox {
-        margin-bottom: 10px;
+        margin: 20px;
+        text-align: center;
       }
       .form-signin input[type="text"],
       .form-signin input[type="password"] {
@@ -48,13 +49,10 @@
         padding: 7px 9px;
       }
       .form-signin .remember-checkbox {
-        margin-right: 30%;
-        margin-bottom: 15px;
+        margin: 30px;
       }
       .form-signin .login-btn {
-        margin-left: 30%;
-        margin-right: 30%;
-        margin-bottom: 15px;
+        margin-left: 40%;
       }
     </style>
     <script>
