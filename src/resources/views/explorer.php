@@ -74,11 +74,12 @@
     }
   }
   .rightbutton-menu{
-    float: right;
+    float: left;
     display:none;
     width:60px;
-    position: absolute;
+    position: fixed;
     z-index: 1;
+    cursor: pointer;
   }
   </style>
   <script type="text/javascript">
@@ -105,7 +106,8 @@
     function(){
       var e =window.event;
       if(e.button == "2"){
-        $('.rightbutton-menu').css('margin',e.offsetY+'px '+e.offsetX+'px');
+        $('.rightbutton-menu').css('left',(e.pageX || e.clientX + scrollX)+'px');
+        $('.rightbutton-menu').css('top',(e.pageY || e.clientY + scrollY)+'px');
         $('.rightbutton-menu').show();
       }else if(e.button=="0"){
         $('.rightbutton-menu').hide();
