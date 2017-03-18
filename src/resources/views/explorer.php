@@ -49,6 +49,7 @@
 
   .free-sidebar-header{
     margin: 10px;
+    padding: 5px;
     background-color: #99ccff;
     border-radius: 5px;
     color: #ffffff;
@@ -81,6 +82,40 @@
     z-index: 1;
     cursor: pointer;
   }
+  .form-search{
+    width:230px;
+  }
+  .form-search input{
+    border-style: none;
+    border-bottom: solid 3px;
+    width:0px;
+    height:30px;
+    line-height: 30px;
+    float: left;
+    position: relative;
+    display: inline-block;
+    outline:none;
+    left:200px;
+  }
+  .form-search button{
+    background-color: rgb(255,255,255);
+    border-style: none;
+    height:30px;
+    width:30px;
+    line-height: 30px;
+    float: right;
+    position: relative;
+    display: inline-block;
+    outline:none;
+  }
+  .form-search img{
+     width: auto;
+     height: auto;
+     max-width: 100%;
+     max-height: 100%;
+
+  }
+
   </style>
   <script type="text/javascript">
   $(function(){
@@ -115,6 +150,28 @@
     }
   );
 });
+
+$(document).ready(function(){
+  var is_expand=false;
+
+  $(".search-button").click(function(){
+    $(".search-input").animate({left:'0px',width:'200px'});
+
+    if(is_expand==true){
+      return true;
+    }else{
+      is_expand=true;
+      return false;
+    }
+  });
+
+  $(".search-input").blur(function(){
+    $(".search-input").animate({left:'200px',width:'0px'});
+    is_expand=false;
+  });
+
+});
+
 </script>
 </head>
 
@@ -178,8 +235,10 @@
            <!--文件搜索-->
            <div class="col-md-4">
              <form class="form-search">
-               <input type="text" class="input-medium search-query">
-               <button type="submit" class="btn">搜索</button>
+               <input type="text" class="input-medium search-input">
+               <button type="submit" class="search-button">
+                 <img src="./magnifier27.png" class="search-finder">
+               </button>
              </form>
            </div>
            <!--文件排序方式-->
