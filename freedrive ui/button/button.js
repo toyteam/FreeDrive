@@ -1,0 +1,28 @@
+$(document).ready(
+  function(){
+    $(".freebtn-default").mouseenter(
+      function(){
+        $(".freebtn-default").css("color","rgb(100,100,100)");
+        $(".freebtn-default").css("background-color","rgb(255,255,255)");
+      }
+    );
+    $(".freebtn-default").mouseleave(
+      function(){
+        $(".freebtn-default").css("color","rgb(255,255,255)");
+        $(".freebtn-default").css("background-color","rgb(100,100,100)");
+      }
+    );
+    $(".freebtn-primary").mouseenter(
+      function(){
+        $(".freebtn-primary").css("color","rgb(255,255,255)");
+        $(".freebtn-primary").css("background-color","rgb(100,100,100)");
+      }
+    );
+    $(".freebtn-primary").mouseleave(
+      function(){
+        $(".freebtn-primary").css("color","rgb(100,100,100)");
+        $(".freebtn-primary").css("background-color","rgb(255,255,255)");
+      }
+    );
+  }
+);
