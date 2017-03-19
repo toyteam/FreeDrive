@@ -1,0 +1,27 @@
+input[type=checkbox] {
+  visibility: hidden;
+ }
+.form-checkbox{
+  display: inline-block;
+  position: relative;
+}
+ .form-checkbox label {
+    display: inline-block;
+    position: relative;
+    width: 25px;
+    height: 25px;
+    background: #eee;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #888;
+    margin-bottom: 0px;
+    cursor: pointer;
+}
+.form-checkbox img{
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  opacity:0;
+}

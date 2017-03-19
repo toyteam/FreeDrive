@@ -1,6 +1,7 @@
 $(document).ready(
   function(){
     //收起所有菜单
+    $(".free-sidebar-block").css("display","none");
     $(".free-sidebar-block").slideUp();
     //点击放下菜单
     $(".free-sidebar-header").click(
