@@ -1,0 +1,59 @@
+.free-navbar{
+  background: rgb(36,41,46);
+}
+.free-navbar-brand{
+  color: rgb(255,255,255);
+  float: left;
+  height: 50px;
+  padding: 15px 15px;
+  font-size: 18px;
+  line-height: 20px;
+  text-shadow: 0 1px 0 rgba(255,255,255,.25);
+  text-decoration: none;
+  background-color: transparent;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.free-navbar-brand:link,.free-navbar-brand:visited,.free-navbar-brand:hover,.free-navbar-brand:active{
+  text-decoration: none;
+  color: rgb(255,255,255);
+}
+.free-navbar-nav{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 20px;
+  float: left;
+}
+@media (min-width: 768px){
+.free-navbar-nav > li {
+    float: left;
+}
+}
+.free-nav{
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.free-nav>li>a {
+    position: relative;
+    display: block;
+}
+.free-navbar-right{
+  float: right!important;
+
+}
+.free-nav-pills{
+  padding: 5px 10px;
+  margin: 10px;
+}
+
+.free-white-link:link,.free-white-link:visited,.free-white-link:active{
+  color: rgb(255,255,255);
+  text-align: center;
+  font-weight: 400;
+  text-decoration: none;
+  display: inline-block;
+}
+.free-white-link:hover{
+  color: rgb(200,200,200);
+  text-decoration: none;
+}
