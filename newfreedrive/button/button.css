@@ -20,8 +20,15 @@
   border: 3px solid rgb(100,100,100);
   color: rgb(255,255,255);
 }
+.freebtn:link,.freebtn:visited,.freebtn:active{
+  text-decoration: none;
+  display: inline-block;
+}
 .freebtn-small{
   padding: 6px 12px;
+}
+.freebtn-large{
+  padding: 10px 16px;
 }
 .freebtn-default{
   background-color: rgb(100,100,100);

@@ -20,9 +20,28 @@
   <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/npm.js"></script>
 
+
   <!--sidebar-->
-  <link href="./sidebar.css" rel="stylesheet">
-  <script src="./sidebar.js"></script>
+  <link href="sidebar/sidebar.css" rel="stylesheet">
+  <script src="sidebar/sidebar.js"></script>
+
+  <!--searchbar-->
+  <link href="searchbar/searchbar.css" rel="stylesheet">
+  <script src="searchbar/searchbar.js"></script>
+  <!--button-->
+  <link href="button/button.css" rel="stylesheet">
+  <script src="button/button.js"></script>
+
+  <!--navbar-->
+  <link href="navbar/navbar.css" rel="stylesheet">
+
+  <!--checkbox-->
+  <link href="checkbox/checkbox.css" rel="stylesheet">
+  <script src="checkbox/checkbox.js"></script>
+
+  <!--datatable插件-->
+  <script src="datatables/jquery.dataTables.min.js"></script>
+  <link href="datatables/jquery.dataTables.min.css" rel="stylesheet">
 
   <!--css-->
   <style type="text/css">
@@ -56,13 +75,44 @@
   .rightbutton-menu{
     float: left;
     display:none;
-    width:60px;
+    width:80px;
     position: fixed;
     z-index: 1;
     cursor: pointer;
+    border-radius: 0px;
+
+    padding-left: 0;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 1px 0 rgba(10,10,10,.25);
+    border:1px solid #ccc;
+  }
+  .rightbutton-menu-item:first-child{
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+
+  }
+  .rightbutton-menu-item{
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 0px solid #ddd;
+  }
+  .rightbutton-menu-item:hover{
+    background-color: rgb(235,248,254);
   }
 
-
+  .filename{
+    display: inline-block;
+    position: relative;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .fileicon{
+    display: inline-block;
+    position: relative;
+  }
 
 
   </style>
@@ -98,33 +148,70 @@
       }
     }
   );
+  //datatable插件
+  $(document).ready(function(){
+    $('.file-table').DataTable({
+      //lengthMenu: [5, 10, 20, 30],//这里也可以设置分页，但是不能设置具体内容，只能是一维或二维数组的方式，所以推荐下面language里面的写法。
+                paging: true,//分页
+                ordering: true,//是否启用排序
+                searching: true,//搜索
+                language: {
+                    lengthMenu: '<select class="form-control input-xsmall">' +
+                     '<option value="1">1</option>' +
+                      '<option value="10">10</option>' +
+                      '<option value="20">20</option>' +
+                      '<option value="30">30</option>' +
+                      '<option value="40">40</option>' +
+                      '<option value="50">50</option>' +
+                      '</select>条记录',//左上角的分页大小显示。
+                    search: '<div class="form-search"></div>',//右上角的搜索文本，可以写html标签
+
+                    paginate: {//分页的样式内容。
+                        previous: "上一页",
+                        next: "下一页",
+                        first: "第一页",
+                        last: "最后"
+                    },
+
+                    zeroRecords: "没有内容",//table tbody内容为空时，tbody的内容。
+                    //下面三者构成了总体的左下角的内容。
+                    info: "总共_PAGES_ 页，显示第_START_ 到第 _END_ ，筛选之后得到 _TOTAL_ 条，初始_MAX_ 条 ",//左下角的信息显示，大写的词为关键字。
+                    infoEmpty: "0条记录",//筛选为空时左下角的显示。
+                    infoFiltered: ""//筛选之后的左下角筛选提示，
+                },
+                paging: false,
+                pagingType: "full_numbers",//分页样式的类型
+    });
+  });
 });
+
+
 
 </script>
 </head>
 
 
 <body>
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <nav class="navbar navbar-default navbar-fixed-top free-navbar" role="navigation">
     <div class="container-fluid">
     <div class="navbar-header">
-        <a class="navbar-brand" href="#">FreeDrive</a>
+        <a class="free-navbar-brand" href="#">FreeDrive</a>
     </div>
-      <ul class="nav nav-pills navbar-right" role="tablist">
-        <li role="presentation"><a href="#">退出</a></li>
+      <ul class="free-nav free-navbar-right free-nav-pills" role="tablist">
+        <li role="presentation"><a href="#" class="free-white-link">退出</a></li>
       </ul>
     </div>
   </nav>
-  <!--
-  <div class="rightbutton-menu">
-  <ul class="list-group">
-    <li class="list-group-item">剪切</li>
-    <li class="list-group-item">复制</li>
-    <li class="list-group-item">粘贴</li>
-    <li class="list-group-item">删除</li>
+
+
+  <ul class="rightbutton-menu">
+    <li class="rightbutton-menu-item">剪切</li>
+    <li class="rightbutton-menu-item">复制</li>
+    <li class="rightbutton-menu-item">粘贴</li>
+    <li class="rightbutton-menu-item">删除</li>
   </ul>
-</div>
-右键菜单-->
+
+<!--右键菜单-->
   <div class="container-fluid">
     <div class="row-fluid">
       <!--左侧功能栏-->
@@ -197,20 +284,23 @@
              <button class="freebtn freebtn-small freebtn-primary" type="button" id="start_upload">开始上传</button>
            </div>
            <div class="col-md-1">
-             <button id="mddir" class="freebtn freebtn-small" type="button">新建文件夹</button>
+             <button id="mddir" class="freebtn freebtn-small freebtn-default" type="button">新建文件夹</button>
            </div>
            <div class="col-md-4">
            </div>
            <!--文件搜索-->
+           <!--
            <div class="col-md-4">
              <form class="form-search">
                <input type="text" class="input-medium search-input">
                <button type="submit" class="search-button">
-                 <img src="./magnifier27.png" class="search-finder">
+                 <img src="searchbar/magnifier27.png" class="search-finder">
                </button>
              </form>
            </div>
+           -->
            <!--文件排序方式-->
+           <!--
            <div class="col-md-1">
              <div class="btn-group">
                <a class="btn dropdown-toggle icon-align-right" data-toggle="dropdown" href="#">
@@ -218,24 +308,26 @@
                  <span class="caret"></span>
                </a>
                <ul class="dropdown-menu">
-                 <!-- dropdown menu links -->
                  <li><a href="#">文件名</a></li>
                  <li><a href="#">修改时间</a></li>
                  <li><a href="#">大小</a></li>
                </ul>
              </div>
            </div>
+           -->
            <!--文件夹显示方式-->
+           <!--
            <div class="col-md-1">
              <a class="btn btn-small" href="#"><i class="icon-file"></i>显示</a>
            </div>
          </div>
+         -->
          <hr>
          <input id="hidden" type="hidden" value="3" />
          <!--文件列表-->
          <div class="row-fluid">
            <div class="col-md-12">
-             <table class="table table-bordered table-hover">
+             <table class="table table-bordered table-hover file-table">
                <thead>
                  <tr>
                    <th>文件名</th>
@@ -246,46 +338,43 @@
                <tbody>
                  <tr class="table-row">
                    <td>
-                     <span class="form-checkbox">
+                     <div class="form-checkbox">
                        <input type="checkbox" value="1" id="checkbox_1" name="" />
-                       <label for="checkbox_1"></label>
-                     </span>
-                     <span class="fileicon"></span>
-                     <span>
-                       <span class="filename">英语</span>
-                       <span class="operation">
-                         <div class="rightbutton-menu">
-                         <ul class="list-group">
-                           <li class="list-group-item">剪切</li>
-                           <li class="list-group-item">复制</li>
-                           <li class="list-group-item">粘贴</li>
-                           <li class="list-group-item">删除</li>
-                         </ul>
-                        </div>
-                       </span>
-                     </span>
+                       <label for="checkbox_1">
+                         <img src="check35.png" class="search-finder">
+                       </label>
+                     </div>
+                     <div class="fileicon"></div>
+                     <div class="filename">英语</div>
+
                    </td>
                    <td>-</td>
                    <td>2016-1-2</td>
                  </tr>
                  <tr>
                    <td>
-                     <span class="form-checkbox">
+                     <div class="form-checkbox">
                        <input type="checkbox" value="1" id="checkbox_2" name="" />
-                       <label for="checkbox_2"></label>
-                     </span>
-                     作业
+                       <label for="checkbox_2">
+                        <img src="check35.png" class="search-finder">
+                       </label>
+                     </div>
+                     <div class="fileicon"></div>
+                     <div class="filename">作业</div>
                    </td>
                    <td>-</td>
                    <td>2016-5-7</td>
                  </tr>
                  <tr>
                    <td>
-                     <span class="form-checkbox">
+                     <div class="form-checkbox">
                        <input type="checkbox" value="1" id="checkbox_3" name="" />
-                       <label for="checkbox_3"></label>
-                     </span>
-                     学习.txt
+                       <label for="checkbox_3">
+                        <img src="check35.png" class="search-finder">
+                       </label>
+                     </div>
+                     <div class="fileicon"></div>
+                     <div class="filename">学习.txt</div>
                    </td>
                    <td>1M</td>
                    <td>2016-5-7</td>

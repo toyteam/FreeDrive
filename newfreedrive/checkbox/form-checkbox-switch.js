@@ -1,0 +1,15 @@
+$(document).ready(function(){
+  $(".form-checkbox-switch-input:checked").parent().css("background-color","rgb(100,100,100)");
+  $(".form-checkbox-switch-input:checked").next().css("background-color","rgb(255,255,255)");
+  $(".form-checkbox-switch-label").click(
+    function(){
+      if($(this).prev().is(':checked')==true){
+        $(this).parent().animate({backgroundColor:"rgb(255,255,255)"},100);
+        $(this).animate({backgroundColor:"rgb(100,100,100)"},100);
+      }else{
+        $(this).parent().animate({backgroundColor:"rgb(100,100,100)"},100);
+        $(this).animate({backgroundColor:"rgb(255,255,255)"},100);
+      }
+    }
+  );
+});

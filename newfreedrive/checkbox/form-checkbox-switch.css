@@ -1,0 +1,34 @@
+.form-checkbox-switch input{
+	visibility: hidden;
+}
+.form-checkbox-switch {
+	width: 80px;
+	height: 30px;
+	background: rgb(255,255,255);
+
+	border-radius: 40px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: rgb(100,100,100);
+	position: relative;
+	display: inline-block;
+
+}
+
+.form-checkbox-switch label {
+	display: block;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+
+	transition: all .5s ease;
+	cursor: pointer;
+	position: absolute;
+	top: 2px;
+	z-index: 1;
+	left: 12px;
+	background: rgb(100,100,100);
+}
+.form-checkbox-switch input[type=checkbox]:checked + label {
+	left: 45px;
+}
