@@ -52,10 +52,6 @@
   <link href="tablestyle/table.css" rel="stylesheet">
   <!--<script src="tablestyle/table.js"></script>-->
 
-  <!--loading-->
-  <link href="loading/loading.css" rel="stylesheet">
-  <script src="loading/loading.js"></script>
-
   <!--datatable插件-->
   <script src="datatables/jquery.dataTables.min.js"></script>
   <link href="datatables/jquery.dataTables.min.css" rel="stylesheet">
@@ -239,19 +235,6 @@
 
 
 <body>
-  <!--网页加载中-->
-  <div class="loading_back">
-    <div class="loading">
-    <div class="loading_point"></div>
-    <div class="loading_point"></div>
-    <div class="loading_point"></div>
-    <div class="loading_point"></div>
-    <div class="loading_point"></div>
-    <div class="loading_point"></div>
-    </div>
-  </div>
-
-
   <nav class="free-navbar free-navbar-fixed-top free-navbar" role="navigation">
     <div class="free-container-fluid">
     <div class="free-navbar-header">
@@ -287,7 +270,7 @@
             </div>
             <div class="free-sidebar-block">
               <div class="free-sidebar-item">
-                <a href="#">全部文件</a>
+                <a href="explorer.html">全部文件</a>
               </div>
               <div class="free-sidebar-item">
                 文档
@@ -306,7 +289,7 @@
             </div>
             <div class="free-sidebar-block">
               <div class="free-sidebar-item">
-                <a href="share.html">全部分享</a>
+                <a href="#">全部分享</a>
               </div>
               <div class="free-sidebar-item">
                 公开链接
@@ -340,11 +323,9 @@
          <div class="free-row-fluid">
            <!--操作按钮-->
            <div class="free-col-md-3">
-             <button class="freebtn freebtn-small freebtn-primary" type="button" id="browse">选择文件</button>
-             <button class="freebtn freebtn-small freebtn-primary" type="button" id="start_upload">开始上传</button>
+             <button id="mddir" class="freebtn freebtn-small freebtn-default" type="button">新建分享</button>
            </div>
            <div class="free-col-md-1">
-             <button id="mddir" class="freebtn freebtn-small freebtn-default" type="button">新建文件夹</button>
            </div>
 
            <!--文件搜索-->
@@ -391,7 +372,7 @@
                  <tr>
                    <th style="border-bottom:none;">文件名</th>
                    <th style="border-bottom:none;">大小</th>
-                   <th style="border-bottom:none;">修改时间</th>
+                   <th style="border-bottom:none;">分享时间</th>
                  </tr>
                </thead>
                <tbody>

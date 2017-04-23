@@ -38,6 +38,18 @@
 .free-sidebar-item:hover{
   color: #000000;
 }
+
+.free-sidebar-item a{
+  cursor: pointer;
+  font-family: 'Segoe UI',Verdana,Arial;
+  color: #6a7073;
+  text-decoration: none;
+}
+.free-sidebar-item a:hover{
+  color: #000000;
+}
+
+
 .free-sidebar{
   background-color: rgb(255,255,255);
 }

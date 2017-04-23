@@ -1,5 +1,6 @@
 .form-search{
   width:230px;
+  float:right;
 }
 .form-search input{
   border-style: none;

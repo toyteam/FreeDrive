@@ -1,0 +1,29 @@
+.free-radio label{
+  display: inline-block;
+  background-color: rgba(60,60,60,0);
+  border-radius: 100%;
+  width:11px;
+  height:11px;
+  position: relative;
+  top: 3px;
+  left:3px;
+  cursor: pointer;
+}
+.free-radio input[type=radio]:checked + label {
+  background-color: rgba(60,60,60,1);
+}
+.free-radio input{
+  display: none;
+}
+
+.free-radio{
+  border: solid 1px;
+  border-radius: 100%;
+  width:17px;
+  height:17px;
+}
+.free-radio:hover{
+  border: solid 1px;
+  border-radius: 100%;
+  background-color: rgb(200,200,200);
+}

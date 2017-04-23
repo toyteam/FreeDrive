@@ -12,9 +12,7 @@
   left: 0;
   z-index: 1030;
 }
-.free-navbar-header {
-  float: left;
-}
+
 .free-navbar-brand{
   color: rgb(255,255,255);
   float: left;
@@ -58,10 +56,6 @@
 .free-nav-pills{
   padding: 5px 10px;
   margin: 10px;
-}
-
-.free-white-link{
-  margin:5px;
 }
 
 .free-white-link:link,.free-white-link:visited,.free-white-link:active{

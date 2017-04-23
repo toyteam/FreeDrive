@@ -1,0 +1,22 @@
+
+  .free-table th{
+    background-color: #ededed;
+    color: #636363;
+    text-align: left;
+    font-weight: bold;
+  }
+  .free-table td{
+
+  }
+  .free-table th, .free-table td{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+  .free-table-bordered th, .free-table-bordered td{
+    border: 1px solid #bbb;
+  }
+  .free-table-hover td:hover{
+    border: 1px solid #bbb;
+  }

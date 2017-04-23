@@ -16,6 +16,29 @@
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/npm.js"></script>
+
+  <!--sidebar-->
+  <link href="sidebar/sidebar.css" rel="stylesheet">
+  <script src="sidebar/sidebar.js"></script>
+
+  <!--searchbar-->
+  <link href="searchbar/searchbar.css" rel="stylesheet">
+  <script src="searchbar/searchbar.js"></script>
+  <!--button-->
+  <link href="button/button.css" rel="stylesheet">
+  <script src="button/button.js"></script>
+
+  <!--navbar-->
+  <link href="navbar/navbar.css" rel="stylesheet">
+
+  <!--checkbox-->
+  <link href="checkbox/checkbox.css" rel="stylesheet">
+  <script src="checkbox/checkbox.js"></script>
+
+  <!--switch checkbox-->
+  <link href="checkbox/form-checkbox-switch.css" rel="stylesheet">
+  <script src="checkbox/form-checkbox-switch.js"></script>
+
   <style type="text/css">
       body {
         padding-top: 160px;
@@ -109,14 +132,14 @@
 
 <body>
 
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <nav class="navbar navbar-default navbar-fixed-top free-navbar" role="navigation">
     <div class="container-fluid">
     <div class="navbar-header">
-        <a class="navbar-brand" href="<?=url('/')?>">FreeDrive</a>
+        <a class="free-navbar-brand" href="/">FreeDrive</a>
     </div>
-        <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?= url('login')?>">登陆</a></li>
-        <li><a href="<?=url('register')?>">注册</a></li>
+        <ul class="free-nav free-navbar-nav free-navbar-right">
+        <li><a href="login.html" class="free-white-link">登陆</a></li>
+        <li><a href="register.html" class="free-white-link">注册</a></li>
         </ul>
     </div>
   </nav>
@@ -142,7 +165,7 @@
         placeholder="retype password" name="user_pw_confirm">
 
         <p></p>
-        <button class="btn btn-large btn-primary login-btn" type="submit">注册</button>
+        <button class="freebtn freebtn-large freebtn-primary login-btn" type="submit">注册</button>
       </form>
 
   </div><!-- /container -->

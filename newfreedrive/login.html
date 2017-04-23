@@ -86,9 +86,9 @@
       $(function (){
         $("[data-toggle='user_name_popover']").popover({trigger:'manual'});
         $("[data-toggle='password_popover']").popover({trigger:'manual'});
-        if('<?=isset($error)?$error:""?>'==''){
+        //if('<?=isset($error)?$error:""?>'==''){
           $('#loginAlert').hide();
-        }
+        //}
 
       });
       function closeWarning(id){
@@ -121,11 +121,11 @@
   <nav class="navbar navbar-default navbar-fixed-top free-navbar" role="navigation">
     <div class="container-fluid">
     <div class="navbar-header">
-        <a class="free-navbar-brand" href="<?=url('/')?>">FreeDrive</a>
+        <a class="free-navbar-brand" href="/">FreeDrive</a>
     </div>
         <ul class="free-nav free-navbar-nav free-navbar-right">
-        <li><a href="<?= url('login')?>" class="free-white-link">登陆</a></li>
-        <li><a href="<?= url('register')?>" class="free-white-link">注册</a></li>
+        <li><a href="login.html" class="free-white-link">登陆</a></li>
+        <li><a href="register.html" class="free-white-link">注册</a></li>
         </ul>
     </div>
   </nav>
@@ -134,7 +134,7 @@
   <div class="container">
 
     <form class="form-signin" role="form" action="<?=url('login_check')?>" method="post" onsubmit="return loginSubmitCheck()">
-        <h2 class="form-signin-heading">登陆</h2>
+        <h2 class="form-signin-heading">Sign in</h2>
         <div id="loginAlert" class="alert alert-warning">
           <a href="#" class="close" data-dismiss="alert" onclick="closeWarning('#loginAlert');">&times;</a>
           <?=isset($error)?$error:''?>
@@ -154,13 +154,15 @@
         placeholder="password" name="user_pw">
         </p>
 
-        <div class="form-checkbox-switch">
-          <input class="form-checkbox-switch-input" type="checkbox" value="remember-me" id="checkbox_3" name=""/>
-          <label class="form-checkbox-switch-label" for="checkbox_3"></label>
+        <div class="form-checkbox">
+          <input type="checkbox" value="1" id="checkbox_1" name="" />
+          <label for="checkbox_1">
+            <img src="images/check35.png" class="search-finder">
+          </label>
         </div>
-        保持登陆
+        Keep me sign in
         <p></p>
-        <button class="freebtn freebtn-large freebtn-primary login-btn a" type="submit">登陆</button>
+        <button class="freebtn freebtn-large freebtn-primary login-btn a" type="submit">Next</button>
     </form>
 
   </div><!-- /container -->

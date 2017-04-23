@@ -18,17 +18,12 @@
 
   <script src="http://cdn.bootcss.com/tether/1.3.7/js/tether.min.js"></script>
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-  <!--
   <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/npm.js"></script>
-  -->
-
-  <!--plupload-->
-  <script src="plupload/plupload.full.min.js"></script>
 
   <!--layout-->
   <link href="layout/layout.css" rel="stylesheet">
-  <!--<script src="layout/layout.js"></script>-->
+  <script src="layout/layout.js"></script>
 
   <!--sidebar-->
   <link href="sidebar/sidebar.css" rel="stylesheet">
@@ -48,13 +43,6 @@
   <link href="checkbox/checkbox.css" rel="stylesheet">
   <script src="checkbox/checkbox.js"></script>
 
-  <!--tablestyle-->
-  <link href="tablestyle/table.css" rel="stylesheet">
-  <!--<script src="tablestyle/table.js"></script>-->
-
-  <!--loading-->
-  <link href="loading/loading.css" rel="stylesheet">
-  <script src="loading/loading.js"></script>
 
   <!--datatable插件-->
   <script src="datatables/jquery.dataTables.min.js"></script>
@@ -83,13 +71,6 @@
     width: 5em;
     padding-left: 0.2em;
     padding-right: 0.2em;
-
-    display: inline-block;
-    position: relative;
-    font-weight: 600;
-    font-size: 14px;
-    bottom:5px;
-    margin:auto 5px;
   }
 
   .span_newdir {
@@ -121,6 +102,7 @@
   .rightbutton-menu-item:first-child{
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
+
   }
   .rightbutton-menu-item{
     position: relative;
@@ -139,26 +121,12 @@
     position: relative;
     font-weight: 600;
     font-size: 14px;
-    bottom:5px;
-    margin:auto 5px;
-    cursor: pointer;
   }
   .fileicon{
     display: inline-block;
     position: relative;
-    background-image: url("images/files.svg");
-    width:20px;
-    height:20px;
-    margin:auto 5px;
   }
-  .foldericon{
-    display: inline-block;
-    position: relative;
-    background-image: url("images/folders.svg");
-    width:20px;
-    height:20px;
-    margin:auto 5px;
-  }
+
 
   </style>
   <script type="text/javascript">
@@ -197,7 +165,7 @@
   $(document).ready(function(){
     $('.file-table').DataTable({
       //lengthMenu: [5, 10, 20, 30],//这里也可以设置分页，但是不能设置具体内容，只能是一维或二维数组的方式，所以推荐下面language里面的写法。
-                paging: false,//分页
+                paging: true,//分页
                 ordering: true,//是否启用排序
                 searching: false,//搜索
                 language: {
@@ -220,9 +188,7 @@
 
                     zeroRecords: "没有内容",//table tbody内容为空时，tbody的内容。
                     //下面三者构成了总体的左下角的内容。
-                    //info: "共_PAGES_ 页，显示第 _START_ 行到第 _END_ 行 ",//左下角的信息显示，大写的词为关键字。
-                    info: "",
-                    //总共_PAGES_ 页，显示第_START_ 到第 _END_ ，筛选之后得到 _TOTAL_ 条，初始_MAX_ 条
+                    info: "总共_PAGES_ 页，显示第_START_ 到第 _END_ ，筛选之后得到 _TOTAL_ 条，初始_MAX_ 条 ",//左下角的信息显示，大写的词为关键字。
                     infoEmpty: "0条记录",//筛选为空时左下角的显示。
                     infoFiltered: ""//筛选之后的左下角筛选提示，
                 },
@@ -239,26 +205,13 @@
 
 
 <body>
-  <!--网页加载中-->
-  <div class="loading_back">
-    <div class="loading">
-    <div class="loading_point"></div>
-    <div class="loading_point"></div>
-    <div class="loading_point"></div>
-    <div class="loading_point"></div>
-    <div class="loading_point"></div>
-    <div class="loading_point"></div>
-    </div>
-  </div>
-
-
   <nav class="free-navbar free-navbar-fixed-top free-navbar" role="navigation">
     <div class="free-container-fluid">
     <div class="free-navbar-header">
         <a class="free-navbar-brand" href="#">FreeDrive</a>
     </div>
       <ul class="free-nav free-navbar-right free-nav-pills" role="tablist">
-        <li role="presentation"><a href="index.html" class="free-white-link">退出</a></li>
+        <li role="presentation"><a href="#" class="free-white-link">退出</a></li>
       </ul>
     </div>
   </nav>
@@ -287,7 +240,7 @@
             </div>
             <div class="free-sidebar-block">
               <div class="free-sidebar-item">
-                <a href="#">全部文件</a>
+                全部文件
               </div>
               <div class="free-sidebar-item">
                 文档
@@ -306,7 +259,7 @@
             </div>
             <div class="free-sidebar-block">
               <div class="free-sidebar-item">
-                <a href="share.html">全部分享</a>
+                全部分享
               </div>
               <div class="free-sidebar-item">
                 公开链接
@@ -346,10 +299,10 @@
            <div class="free-col-md-1">
              <button id="mddir" class="freebtn freebtn-small freebtn-default" type="button">新建文件夹</button>
            </div>
-
+		   
            <!--文件搜索-->
-
-           <div class="free-col-md-8">
+           
+           <div class="free-col-md-4">
              <form class="form-search">
                <input type="text" class="input-medium search-input">
                <button type="submit" class="search-button">
@@ -357,7 +310,7 @@
                </button>
              </form>
            </div>
-
+           
            <!--文件排序方式-->
            <!--
            <div class="col-md-1">
@@ -381,17 +334,17 @@
            </div>
          </div>
          -->
-
+         
          <input id="hidden" type="hidden" value="3" />
          <!--文件列表-->
          <div class="free-row-fluid">
            <div class="free-col-md-12">
-             <table class="file-table free-table free-table-bordered free-table-hover" style="border-bottom:none;border-collapse:collapse;">
+             <table class="table table-bordered table-hover file-table">
                <thead>
                  <tr>
-                   <th style="border-bottom:none;">文件名</th>
-                   <th style="border-bottom:none;">大小</th>
-                   <th style="border-bottom:none;">修改时间</th>
+                   <th>文件名</th>
+                   <th>大小</th>
+                   <th>修改时间</th>
                  </tr>
                </thead>
                <tbody>
@@ -400,10 +353,10 @@
                      <div class="form-checkbox">
                        <input type="checkbox" value="1" id="checkbox_1" name="" />
                        <label for="checkbox_1">
-                         <img src="images/check35.png" class="search-finder">
+                         <img src="check35.png" class="search-finder">
                        </label>
                      </div>
-                     <div class="foldericon"></div>
+                     <div class="fileicon"></div>
                      <div class="filename">英语</div>
 
                    </td>
@@ -415,10 +368,10 @@
                      <div class="form-checkbox">
                        <input type="checkbox" value="1" id="checkbox_2" name="" />
                        <label for="checkbox_2">
-                        <img src="images/check35.png" class="search-finder">
+                        <img src="check35.png" class="search-finder">
                        </label>
                      </div>
-                     <div class="foldericon"></div>
+                     <div class="fileicon"></div>
                      <div class="filename">作业</div>
                    </td>
                    <td>-</td>
@@ -429,7 +382,7 @@
                      <div class="form-checkbox">
                        <input type="checkbox" value="1" id="checkbox_3" name="" />
                        <label for="checkbox_3">
-                        <img src="images/check35.png" class="search-finder">
+                        <img src="check35.png" class="search-finder">
                        </label>
                      </div>
                      <div class="fileicon"></div>
@@ -481,6 +434,9 @@ $('input').blur(function(){
 
 
 
+
+
+
 </script>
 
 <script>
@@ -488,8 +444,8 @@ $('input').blur(function(){
 
 
 $('#mddir').click(function(){
-  var checkbox = '<div class="form-checkbox"><input type="checkbox" value="1" id="checkbox_new" name="" /><label for="checkbox_new"><img src="images/check35.png" class="search-finder"></label></div><div class="foldericon"></div>';
-  var input = '<input class="newdirname" type="text" value="新建文件夹">&nbsp;&nbsp;&nbsp;&nbsp;<input class="submit freebtn freebtn-small freebtn-default" type="submit" value="提交">';
+  var checkbox = '<span class="form-checkbox"><input type="checkbox" value="1" id="checkbox_new" name="" /><label for="checkbox_new"></label></span>';
+  var input = '<input class="newdirname" type="text" value="新建文件夹">&nbsp;&nbsp;&nbsp;&nbsp;<input class="submit" type="submit" value="提交">';
   var script = '<script>$(".submit").click(function(){$(".span_newdir").text(function(){return $(".newdirname").val();});});<\/script>';
   var myDate = new Date();
   var year = myDate.getFullYear();    //获取完整的年份(4位,1970-????)
